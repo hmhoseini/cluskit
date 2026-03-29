@@ -255,9 +255,9 @@ class Cluster(ase.Atoms):
         self.descriptor_setup = dscribe.descriptors.SOAP(
             species=atomic_numbers,
             periodic=False,
-            rcut=5.0,
-            nmax=8,
-            lmax=6,
+            r_cut=5.0,
+            n_max=8,
+            l_max=6,
             sparse=False,
             )
 
@@ -578,7 +578,7 @@ class Cluster(ase.Atoms):
         else:
             pos = self.site_positions[sitetype]
         desc = self.descriptor_setup
-        descmatrix = desc.create(self.ase_object, positions = pos.tolist())
+        descmatrix = desc.create(self.ase_object, centers = pos.tolist())
         if sitetype == -1:
             n_top_sites = self.site_positions[1].shape[0]
             n_bridge_sites = self.site_positions[2].shape[0]
